@@ -8,11 +8,6 @@
   
   <title>Frontend Mentor | Tip calculator app</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
   <header>
@@ -26,7 +21,7 @@
     <div class="splitter">
       <div class="controls">
         <label for="bill">Bill</label>
-        <input type="number" name="bill" id="bill">
+        <input type="text" name="bill" id="bill" placeholder="0">
         <label id="tip">Select Tip %</label>
         <div class="control-group" role="group" aria-labeledby="tip">
           <button class="btn btn-tip">5%</button>
@@ -34,31 +29,29 @@
           <button class="btn btn-tip">15%</button>
           <button class="btn btn-tip">20%</button>
           <button class="btn btn-tip">50%</button>
-          <input type="number" name="tip-custom" id="tip-custom" placeholder="Custom">
+          <input type="text" name="tip-custom" id="tip-custom" placeholder="Custom">
         </div>
         <label for="bill">Number of People</label>
-        <input type="number" name="people" id="people">
+        <input type="text" name="people" id="people" placeholder="0">
       </div>
       <div class="display">
-        <div class="display-tip-amount">
+        <div class="display-output display-tip-amount">
           <div class="label">
             <h2 class="label-title">Tip Amount</h2>
             <p class="label-unit">/ person</p>
           </div>
-          <div class="value"></div>
+          <div class="value highlight">0</div>
         </div>
-        <div class="display-total">
-          <h2 class="label-title">Total</h2>
-          <p class="label-unit">/ person</p>
+        <div class="display-output display-total">
+          <div class="label">
+            <h2 class="label-title">Total</h2>
+            <p class="label-unit">/ person</p>
+          </div>
+          <div class="value highlight">0</div>
         </div>
-        <button type="reset">Reset</button>
+        <button class="btn btn-active reset" type="reset">Reset</button>
       </div>
     </div>
   </main>
-
-  <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </footer>
 </body>
 </html>
