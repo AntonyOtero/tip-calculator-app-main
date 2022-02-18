@@ -76,6 +76,16 @@ header {
   margin-bottom: 2rem;
 }
 
+#bill {
+  background: url(./images/icon-dollar.svg) no-repeat center left 1.25rem;
+  background-color: #F3F9FA;
+}
+
+#people {
+  background: url(./images/icon-person.svg) no-repeat center left 1.25rem;
+  background-color: #F3F9FA;
+}
+
 .control-group {
   display: grid;
   gap: 1em;
@@ -172,6 +182,10 @@ header {
   position: relative;
 }
 
+.input-set:not(:first-of-type) {
+  margin-top: 2.5rem;
+}
+
 .errorMessage {
   position: absolute;
   right: 0;
@@ -193,6 +207,10 @@ header {
 
   .controls {
     margin-bottom: 0;
+  }
+
+  .input-set:not(:first-of-type) {
+    margin-top: 2rem;
   }
 
   .control-group {

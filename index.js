@@ -1,4 +1,3 @@
-// TODO: Add icons to inputs
 // TODO: add local storage
 
 const bill = document.getElementById('bill')
