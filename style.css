@@ -34,6 +34,7 @@ button {
   font-size: 1.5rem;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 input {
@@ -134,12 +135,12 @@ header {
   background: #00474B;
 }
 
-.btn:hover,
-.btn:focus {
+.btn:hover {
   color: #00474B;
   background: #9FE8DF;
 }
 
+.reset,
 .btn-active {
   color: #00474B;
   background:#26C2AE;
@@ -152,6 +153,14 @@ header {
 
 .highlight {
   color: #26C2AE;
+}
+
+.success {
+  border: 2px solid #26C2AE;
+}
+
+.error {
+  border: 2px solid #E17457;
 }
 
 @media screen and (min-width: 1024px) {

@@ -22,16 +22,16 @@
       <div class="controls">
         <label for="bill">Bill</label>
         <input type="text" name="bill" id="bill" placeholder="0">
-        <label id="tip">Select Tip %</label>
-        <div class="control-group" role="group" aria-labeledby="tip">
+        <label id="tip-label">Select Tip %</label>
+        <div class="control-group" role="group" aria-labeledby="tip-label">
           <button class="btn btn-tip">5%</button>
           <button class="btn btn-tip">10%</button>
-          <button class="btn btn-tip">15%</button>
+          <button class="btn btn-tip btn-active">15%</button>
           <button class="btn btn-tip">20%</button>
           <button class="btn btn-tip">50%</button>
-          <input type="text" name="tip-custom" id="tip-custom" placeholder="Custom">
+          <input type="text" name="tip-custom" id="custom-tip" placeholder="Custom">
         </div>
-        <label for="bill">Number of People</label>
+        <label for="people">Number of People</label>
         <input type="text" name="people" id="people" placeholder="0">
       </div>
       <div class="display">
@@ -40,16 +40,16 @@
             <h2 class="label-title">Tip Amount</h2>
             <p class="label-unit">/ person</p>
           </div>
-          <div class="value highlight">0</div>
+          <div class="value highlight" id="tip-amount">0.00</div>
         </div>
         <div class="display-output display-total">
           <div class="label">
             <h2 class="label-title">Total</h2>
             <p class="label-unit">/ person</p>
           </div>
-          <div class="value highlight">0</div>
+          <div class="value highlight" id="total-amount">0.00</div>
         </div>
-        <button class="btn btn-active reset" type="reset">Reset</button>
+        <button class="btn reset" type="reset">Reset</button>
       </div>
     </div>
   </main>
