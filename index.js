@@ -1,6 +1,4 @@
-// TODO: allow custom tips ($ value)
-// TODO: inputs have to be numbers
-// TODO: num of people has to be > 0
+// TODO: Add icons to inputs
 // TODO: add a "reset" button functionality
 // TODO: add local storage
 
@@ -8,6 +6,9 @@ const bill = document.getElementById('bill')
 const tipButtons = document.getElementsByClassName('btn-tip')
 const customTip = document.getElementById('custom-tip')
 const numOfPeople = document.getElementById('people')
+
+const billMessage = document.getElementById('billMessage')
+const peopleMessage = document.getElementById('peopleMessage')
 
 const tipAmount = document.getElementById('tip-amount')
 const totalAmount = document.getElementById('total-amount')
@@ -31,7 +32,38 @@ const updateValues = () => {
   }
 }
 
-bill.addEventListener("keyup", updateValues)
+const getValidity = (input) => {
+  const validitity = {isValid: false, message: ''}
+  if (isNaN(Number(input.value))) {
+    validitity.isValid = false
+    validitity.message = 'Please enter a number'
+  } else if (Number(input.value) <= 0) {
+    validitity.isValid = false
+    validitity.message = `Can't be zero`
+  } else {
+    validitity.isValid = true
+    validitity.message = ''
+  }
+
+  return validitity
+}
+
+const handleInput = (input, message) => {
+  const validity = getValidity(input)
+  if (validity.isValid) {
+    input.classList.remove('error')
+    message.style.visibility = 'hidden'
+    updateValues()
+  } else {
+    input.classList.add('error')
+    message.textContent = validity.message
+    message.style.visibility = 'visible'
+  }
+}
+
+bill.addEventListener("keyup", () => {
+  handleInput(bill, billMessage)
+})
 
 for (const button of tipButtons) {
   button.addEventListener("mousedown", (e) => {
@@ -46,11 +78,12 @@ for (const button of tipButtons) {
 }
 
 customTip.addEventListener("keyup", () => {
-  if (customTip.value > 0) {
+  if (customTip.value >= 0) {
     document.querySelector('.btn-active').classList.remove('btn-active')
     customTip.classList.add('success')
-    updateValues()
   }
 })
 
-numOfPeople.addEventListener("keyup", updateValues)
+numOfPeople.addEventListener("keyup", () => {
+  handleInput(numOfPeople, peopleMessage)
+})

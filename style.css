@@ -159,8 +159,22 @@ header {
   border: 2px solid #26C2AE;
 }
 
-.error {
+.error,
+.error:focus {
   border: 2px solid #E17457;
+}
+
+.input-set {
+  display: flex;
+  flex-direction: inherit;
+  position: relative;
+}
+
+.errorMessage {
+  position: absolute;
+  right: 0;
+  color: #E17457;
+  visibility: hidden;
 }
 
 @media screen and (min-width: 1024px) {
