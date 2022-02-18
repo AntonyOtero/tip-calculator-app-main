@@ -146,9 +146,11 @@ header {
   background:#26C2AE;
 }
 
-.btn-disabled {
+.btn-disabled,
+.btn-disabled:hover {
   color: #00474B;
   background: #0D686D;
+  cursor: default;
 }
 
 .highlight {

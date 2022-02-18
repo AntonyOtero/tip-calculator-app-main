@@ -1,11 +1,11 @@
 // TODO: Add icons to inputs
-// TODO: add a "reset" button functionality
 // TODO: add local storage
 
 const bill = document.getElementById('bill')
 const tipButtons = document.getElementsByClassName('btn-tip')
 const customTip = document.getElementById('custom-tip')
 const numOfPeople = document.getElementById('people')
+const resetButton = document.querySelector('.reset')
 
 const billMessage = document.getElementById('billMessage')
 const peopleMessage = document.getElementById('peopleMessage')
@@ -30,6 +30,8 @@ const updateValues = () => {
     tipAmount.textContent = (customTipValue / numOfPeopleValue).toFixed(2)
     totalAmount.textContent = ((billValue + customTipValue) / numOfPeopleValue).toFixed(2)
   }
+  resetButton.classList.remove('btn-disabled')
+  resetButton.disabled = false;
 }
 
 const getValidity = (input) => {
@@ -82,8 +84,26 @@ customTip.addEventListener("keyup", () => {
     document.querySelector('.btn-active').classList.remove('btn-active')
     customTip.classList.add('success')
   }
+    updateValues()
 })
 
 numOfPeople.addEventListener("keyup", () => {
   handleInput(numOfPeople, peopleMessage)
+})
+
+resetButton.addEventListener("click", () => {
+  bill.value = ''
+  numOfPeople.value = ''
+  customTip.value = ''
+  tipAmount.textContent = '0.00'
+  totalAmount.textContent = '0.00'
+  if (document.querySelector('.btn-active')) {
+    document.querySelector('.btn-active').classList.remove('btn-active')
+  }
+  bill.classList.remove('error')
+  billMessage.style.visibility = 'hidden'
+  numOfPeople.classList.remove('error')
+  peopleMessage.style.visibility = 'hidden'
+  resetButton.classList.add('btn-disabled')
+  resetButton.disabled = true
 })
